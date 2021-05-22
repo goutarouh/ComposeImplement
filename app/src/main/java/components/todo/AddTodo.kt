@@ -1,4 +1,4 @@
-package components.addTodo
+package components.todo
 
 import android.app.Application
 import android.util.Log
@@ -42,7 +42,7 @@ fun AddView(navController: NavController) {
                 insertTodoInDB(inputViewModel.todo.value.toString(), mTodoViewModel)
 
                 Toast.makeText(context, "Added Todo", Toast.LENGTH_SHORT).show()
-                navController.navigate(Destinations.Home)
+                navController.navigate(Destinations.TodoList.path)
             }
         }
     ) {

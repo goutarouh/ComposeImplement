@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -17,12 +19,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
-import com.github.composeimplement.ui.theme.ComposeImplementTheme
 import components.navigation.Destinations
 import components.navigation.NavigationComponent
 import database.TodoItem
@@ -38,84 +38,20 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun HomeView(navController: NavController) {
-
-    val context = LocalContext.current
-    val mTodoViewModel: TodoViewModel = viewModel(
-        factory = TodoViewModelFactory(context.applicationContext as Application)
-    )
-
-    val items = mTodoViewModel.readAllData.observeAsState(listOf()).value
-    
-    
-    Column(modifier = Modifier.padding(16.dp)) {
-        Text(text = "My ToDo List")
-        Spacer(modifier = Modifier.padding(bottom = 16.dp))
-        CustomeCardState(navController = navController, mTodoViewModel = mTodoViewModel)
-        TodoList(list = items, mTodoViewModel = mTodoViewModel)
-        Spacer(modifier = Modifier.padding(top = 32.dp))
-    }
-}
-
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun TodoList(
-    list: List<TodoItem>,
-    mTodoViewModel: TodoViewModel
-) {
-    val context = LocalContext.current
+fun MainView(navController: NavController) {
+    val destList = Destinations.values().filter { it.startScreen }
 
     LazyColumn {
-        items(list) { todo ->
-            val name = rememberSaveable { mutableStateOf(todo.isDone) }
-
+        items(destList) { dest ->
             ListItem(
-                text = { Text(text = todo.itemName )},
-                icon = {
-                    IconButton(onClick = {
-                        mTodoViewModel.deleteTodo(todo)
-                    }) {
-                        Icon(
-                            Icons.Default.Delete,
-                            contentDescription = null
-                        )
-                    }
-                },
-                trailing = {
-                    Checkbox(
-                        checked = name.value,
-                        onCheckedChange = {
-                            name.value = it
-                            todo.isDone = name.value
-                            mTodoViewModel.updateTodo(todo)
-
-                            Toast.makeText(context, "Updated todo!", Toast.LENGTH_SHORT).show()
-                        },
-                    )
+                text = { Text(text = dest.path) },
+                modifier = Modifier.clickable {
+                    navController.navigate(dest.path)
                 }
             )
             Divider()
-        }
-    }
-}
-
-@Composable
-fun CustomeCardState(
-    navController: NavController,
-    mTodoViewModel: TodoViewModel
-) {
-    Column() {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Button(onClick = { navController.navigate(Destinations.AddTodo) }) {
-                Text(text = "Add Todo")
-            }
-            Button(onClick = { mTodoViewModel.deleteAllTodos() }) {
-                Text(text = "Clear all")
-            }
         }
     }
 }
