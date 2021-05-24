@@ -8,6 +8,7 @@ import com.github.composeimplement.MainView
 import com.github.composeimplement.ui.theme.ComposeImplementTheme
 import components.todo.AddView
 import components.todo.ItemList
+import compositionLocalProvider.MyCompositionLocalProvider
 
 @Composable
 fun NavigationComponent() {
@@ -20,6 +21,7 @@ fun NavigationComponent() {
             composable(Destinations.Main.path) { MainView(navController) }
             composable(Destinations.TodoList.path) { ItemList(navController) }
             composable(Destinations.AddTodo.path) { AddView(navController) }
+            composable(Destinations.CompositionLocalProvider.path) { MyCompositionLocalProvider(navController) }
         }
     }
 }

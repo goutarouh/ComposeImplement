@@ -13,5 +13,7 @@ enum class Destinations(
 
     // Todoアプリ
     TodoList("Todo一覧", "todoList", true),
-    AddTodo("Todoを追加", "addTodo", false)
+    AddTodo("Todoを追加", "addTodo", false),
+
+    CompositionLocalProvider("CompositionLocalProviderの使い方", "composition", true)
 }
