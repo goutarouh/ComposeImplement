@@ -25,8 +25,7 @@ import database.TodoViewModel
 import database.TodoViewModelFactory
 
 
-@Composable
-fun ItemList() {
+val ItemListView: @Composable () -> Unit = {
 
     val context = LocalContext.current
     val mTodoViewModel: TodoViewModel = viewModel(

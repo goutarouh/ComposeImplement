@@ -29,8 +29,7 @@ import database.TodoItem
 import database.TodoViewModel
 import database.TodoViewModelFactory
 
-@Composable
-fun AddView() {
+val AddView: @Composable () -> Unit =  {
     val inputViewModel = InputViewModel()
     val context = LocalContext.current
     val navigator = LocalNavigation.current

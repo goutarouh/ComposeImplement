@@ -22,9 +22,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterialApi::class)
-@Composable
-fun MainView() {
+val MainView: @Composable () -> Unit =  {
 
     val navigator = LocalNavigation.current
 
