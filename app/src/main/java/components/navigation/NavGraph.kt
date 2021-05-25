@@ -1,5 +1,9 @@
 package components.navigation
 
+import androidx.compose.runtime.compositionLocalOf
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+
 enum class Destinations(
     /** 画面説明 */
     val description: String,
@@ -15,5 +19,9 @@ enum class Destinations(
     TodoList("Todo一覧", "todoList", true),
     AddTodo("Todoを追加", "addTodo", false),
 
-    CompositionLocalProvider("CompositionLocalProviderの使い方", "composition", true)
+}
+
+
+val LocalNavigation = compositionLocalOf<Navigator> {
+    error("Navigator not found")
 }

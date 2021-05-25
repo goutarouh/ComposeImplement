@@ -24,14 +24,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import components.navigation.Destinations
+import components.navigation.LocalNavigation
 import database.TodoItem
 import database.TodoViewModel
 import database.TodoViewModelFactory
 
 @Composable
-fun AddView(navController: NavController) {
+fun AddView() {
     val inputViewModel = InputViewModel()
     val context = LocalContext.current
+    val navigator = LocalNavigation.current
     val mTodoViewModel: TodoViewModel = viewModel(
         factory = TodoViewModelFactory(context.applicationContext as Application)
     )
@@ -42,7 +44,7 @@ fun AddView(navController: NavController) {
                 insertTodoInDB(inputViewModel.todo.value.toString(), mTodoViewModel)
 
                 Toast.makeText(context, "Added Todo", Toast.LENGTH_SHORT).show()
-                navController.navigate(Destinations.TodoList.path)
+                navigator.navigateTo(Destinations.TodoList.path)
             }
         }
     ) {

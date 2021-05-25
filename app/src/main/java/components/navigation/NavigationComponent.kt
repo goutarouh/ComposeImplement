@@ -1,6 +1,7 @@
 package components.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -8,7 +9,6 @@ import com.github.composeimplement.MainView
 import com.github.composeimplement.ui.theme.ComposeImplementTheme
 import components.todo.AddView
 import components.todo.ItemList
-import compositionLocalProvider.MyCompositionLocalProvider
 
 @Composable
 fun NavigationComponent() {
@@ -17,11 +17,13 @@ fun NavigationComponent() {
 
     ComposeImplementTheme {
 
-        NavHost(navController = navController, startDestination = Destinations.Main.path) {
-            composable(Destinations.Main.path) { MainView(navController) }
-            composable(Destinations.TodoList.path) { ItemList(navController) }
-            composable(Destinations.AddTodo.path) { AddView(navController) }
-            composable(Destinations.CompositionLocalProvider.path) { MyCompositionLocalProvider(navController) }
+        CompositionLocalProvider(LocalNavigation provides MainNavigator(navController)) {
+
+            NavHost(navController = navController, startDestination = Destinations.Main.path) {
+                composable(Destinations.Main.path) { MainView() }
+                composable(Destinations.TodoList.path) { ItemList() }
+                composable(Destinations.AddTodo.path) { AddView() }
+            }
         }
     }
 }

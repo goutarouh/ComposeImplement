@@ -19,13 +19,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import components.navigation.Destinations
+import components.navigation.LocalNavigation
 import database.TodoItem
 import database.TodoViewModel
 import database.TodoViewModelFactory
 
 
 @Composable
-fun ItemList(navController: NavController) {
+fun ItemList() {
 
     val context = LocalContext.current
     val mTodoViewModel: TodoViewModel = viewModel(
@@ -38,7 +39,7 @@ fun ItemList(navController: NavController) {
     Column(modifier = Modifier.padding(16.dp)) {
         Text(text = "My ToDo List")
         Spacer(modifier = Modifier.padding(bottom = 16.dp))
-        CustomeCardState(navController = navController, mTodoViewModel = mTodoViewModel)
+        CustomeCardState(mTodoViewModel = mTodoViewModel)
         TodoList(list = items, mTodoViewModel = mTodoViewModel)
         Spacer(modifier = Modifier.padding(top = 32.dp))
     }
@@ -88,15 +89,15 @@ fun TodoList(
 
 @Composable
 fun CustomeCardState(
-    navController: NavController,
     mTodoViewModel: TodoViewModel
 ) {
+    val navigator = LocalNavigation.current
     Column() {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Button(onClick = { navController.navigate(Destinations.AddTodo.path) }) {
+            Button(onClick = { navigator.navigateTo(Destinations.AddTodo.path) }) {
                 Text(text = "Add Todo")
             }
             Button(onClick = { mTodoViewModel.deleteAllTodos() }) {
