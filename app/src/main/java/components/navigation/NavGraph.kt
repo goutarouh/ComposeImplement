@@ -6,7 +6,6 @@ import com.github.composeimplement.MainView
 import components.todo.AddView
 import components.todo.ItemListView
 import playground.PlaygroundView
-import playground.PlaygroundView2
 
 enum class Destinations(
     /** 画面説明 */
@@ -27,7 +26,6 @@ enum class Destinations(
 
     // 練習用
     Playground("練習", "playground", true, PlaygroundView),
-    Playground2("練習2", "playground2", true, PlaygroundView2)
 
 }
 
