@@ -5,6 +5,7 @@ import androidx.compose.runtime.compositionLocalOf
 import com.github.composeimplement.MainView
 import components.todo.AddView
 import components.todo.ItemListView
+import countdown.ui.CountDownALl
 import playground.PlaygroundView
 
 enum class Destinations(
@@ -23,6 +24,9 @@ enum class Destinations(
     // Todoアプリ
     TodoList("Todo一覧", "todoList", true, ItemListView),
     AddTodo("Todoを追加", "addTodo", false, AddView),
+
+    // カウントダウン
+    CountDonw("CountDown", "countdown", true, CountDownALl),
 
     // 練習用
     Playground("練習", "playground", true, PlaygroundView),

@@ -8,7 +8,8 @@ interface Navigator {
     fun navigateTo(path: String)
 }
 
-class MainNavigator(private val navController: NavController): Navigator {
+class MainNavigator(private val
+                    navController: NavController): Navigator {
     override fun navigateBack() {
         navController.popBackStack()
     }
