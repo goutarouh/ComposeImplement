@@ -1,4 +1,4 @@
-package countdown.helper
+package countdown
 
 import android.util.Log
 import androidx.annotation.MainThread

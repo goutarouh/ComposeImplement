@@ -16,13 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
-import components.navigation.Destinations
-import components.navigation.LocalNavigation
-import database.TodoItem
+import todo.TodoItem
 import database.TodoViewModel
 import database.TodoViewModelFactory
+import main.Destinations
+import main.LocalNavigation
 
 
 val ItemListView: @Composable () -> Unit = {

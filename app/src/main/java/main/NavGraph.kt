@@ -1,12 +1,12 @@
-package components.navigation
+package main
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
-import com.github.composeimplement.MainView
-import components.todo.AddView
+import components.navigation.Navigator
 import components.todo.ItemListView
 import countdown.ui.CountDownALl
 import playground.PlaygroundView
+import todo.AddView
 
 enum class Destinations(
     /** 画面説明 */

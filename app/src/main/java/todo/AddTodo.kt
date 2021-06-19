@@ -1,4 +1,4 @@
-package components.todo
+package todo
 
 import android.app.Application
 import android.util.Log
@@ -21,13 +21,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
-import components.navigation.Destinations
-import components.navigation.LocalNavigation
-import database.TodoItem
 import database.TodoViewModel
 import database.TodoViewModelFactory
+import main.Destinations
+import main.LocalNavigation
 
 val AddView: @Composable () -> Unit =  {
     val inputViewModel = InputViewModel()

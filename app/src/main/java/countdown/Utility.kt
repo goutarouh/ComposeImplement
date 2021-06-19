@@ -1,4 +1,4 @@
-package countdown.utils
+package countdown
 
 import java.util.concurrent.TimeUnit
 

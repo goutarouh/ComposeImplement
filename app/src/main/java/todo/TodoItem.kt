@@ -1,4 +1,4 @@
-package database
+package todo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

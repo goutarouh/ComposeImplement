@@ -6,6 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.github.composeimplement.ui.theme.ComposeImplementTheme
+import main.Destinations
+import main.LocalNavigation
 
 
 @Composable

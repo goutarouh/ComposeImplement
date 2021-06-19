@@ -15,12 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import countdown.utils.Utility
-import countdown.utils.Utility.formatTime
+import countdown.Utility
+import countdown.Utility.formatTime
 import countdown.view.CountDownButton
 import countdown.view.CountDownIndicator
-import countdown.view.ShowCelebrations
-import countdown.viewmodel.CountdownViewModel
+import countdown.CountdownViewModel
 
 @Composable
 fun CountDownScreen(viewModel: CountdownViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
@@ -54,11 +53,6 @@ fun CountDownView(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        if (celebrate) {
-            Log.i("hasegawa", "celbrate")
-            ShowCelebrations()
-        }
 
         Text(
             text = "Timer",

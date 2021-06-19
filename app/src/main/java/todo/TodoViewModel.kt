@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import todo.TodoDatabase
+import todo.TodoItem
 
 class TodoViewModel(application: Application) : AndroidViewModel(application) {
 

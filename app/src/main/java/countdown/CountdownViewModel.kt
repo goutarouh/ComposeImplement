@@ -1,13 +1,11 @@
-package countdown.viewmodel
+package countdown
 
 import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import countdown.helper.SingleLiveEvent
-import countdown.utils.Utility
-import countdown.utils.Utility.formatTime
+import countdown.Utility.formatTime
 
 class CountdownViewModel: ViewModel() {
 

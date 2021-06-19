@@ -1,4 +1,4 @@
-package database
+package todo
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -12,13 +12,13 @@ interface TodoDatabaseDao {
     fun getById(id: Int) : TodoItem?
 
     @Insert
-    suspend fun insert(item:TodoItem)
+    suspend fun insert(item: TodoItem)
 
     @Update
-    suspend fun update(item:TodoItem)
+    suspend fun update(item: TodoItem)
 
     @Delete
-    suspend fun delete(item:TodoItem)
+    suspend fun delete(item: TodoItem)
 
     @Query("DELETE FROM my_todo_list")
     suspend fun deleteAllTodos()

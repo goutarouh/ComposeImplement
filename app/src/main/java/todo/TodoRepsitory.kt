@@ -1,6 +1,8 @@
 package database
 
 import androidx.lifecycle.LiveData
+import todo.TodoDatabaseDao
+import todo.TodoItem
 
 class TodoRepository(private val todoDatabaseDao: TodoDatabaseDao) {
 
