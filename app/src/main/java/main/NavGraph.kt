@@ -5,6 +5,7 @@ import androidx.compose.runtime.compositionLocalOf
 import components.navigation.Navigator
 import components.todo.ItemListView
 import countdown.ui.CountDownALl
+import images_from_url.ShowRemoteImage
 import playground.PlaygroundView
 import todo.AddView
 
@@ -27,6 +28,9 @@ enum class Destinations(
 
     // カウントダウン
     CountDonw("CountDown", "countdown", true, CountDownALl),
+
+    // Images from remote url.
+    GetRemoteImage("URLで画像取得&表示", "imagesFromUrl", true, ShowRemoteImage),
 
     // 練習用
     Playground("練習", "playground", true, PlaygroundView),

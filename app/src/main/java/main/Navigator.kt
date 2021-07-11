@@ -1,7 +1,7 @@
 package components.navigation
 
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
+
 
 interface Navigator {
     fun navigateBack()
